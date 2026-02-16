@@ -1,0 +1,41 @@
+Transactions Immutable (only creation possible)
+
+Customer Data:
+- customer_id: Unique identifier for each customer
+- name: Full name of the customer
+- password: Password for customer authentication
+- email: Email address of the customer
+- phone_number: Contact number of the customer
+- address: Residential or mailing address of the customer
+- date_of_birth: Birthdate of the customer
+- account_number: Unique account number associated with the customer
+- accounts: List of accounts held by the customer (e.g., checking, savings, credit card)
+- kyc_status: Know Your Customer status indicating if the customer's identity has been verified
+
+Account Data:
+- account_number: Unique identifier for each account
+- account_type: Type of account (e.g., checking, savings, credit card)
+- balance: Current balance of the account
+- ifsc: Indian Financial System Code for identifying bank branches
+- branch name: Name of the bank branch where the account is held
+- recent_transactions: List of recent transactions associated with the account, including transaction_id, date, amount, and description (10,100,1000 batches)
+
+Transaction API:
+- Get_balance
+- Transfer money
+- Validate OTP
+- Get transaction history
+- Request statement
+- Get account details
+- Update account information
+- Close account
+- Open new account
+- Get branch information
+
+Cheque Data (For Complaint Use Case):
+- cheque_number: Unique identifier for each cheque
+- amount: Amount written on the cheque
+- date: Date when the cheque was issued
+- status: Current status of the cheque (e.g., cleared, pending, bounced)
+- expected_clearance_date: Date when the cheque is expected to clear
+
