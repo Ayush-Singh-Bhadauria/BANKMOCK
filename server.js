@@ -24,6 +24,21 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Bank Mock API',
+    version: process.env.API_VERSION || 'v1',
+    endpoints: {
+      health: '/health',
+      api: `/api/${process.env.API_VERSION || 'v1'}`,
+      documentation: 'https://github.com/Ayush-Singh-Bhadauria/BANKMOCK'
+    },
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({
