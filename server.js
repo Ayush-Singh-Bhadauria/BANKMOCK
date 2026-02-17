@@ -8,8 +8,19 @@ const { errorHandler, notFound } = require('./middleware/errorHandler');
 // Initialize Express app
 const app = express();
 
-// Connect to MongoDB
-connectDB();
+// Middleware to ensure DB connection (for serverless)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Database connection failed',
+      error: error.message
+    });
+  }
+});
 
 // Middleware
 app.use(cors());
